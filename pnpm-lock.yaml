@@ -16,6 +16,9 @@ dependencies:
   axios:
     specifier: ^1.6.7
     version: 1.6.7
+  notiflix:
+    specifier: ^3.2.7
+    version: 3.2.7
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1714,6 +1717,10 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /notiflix@3.2.7:
+    resolution: {integrity: sha512-NRu6KSeyfphgPKBxh4IUoOYXbROrpuDa9/q9/VPb6UNEP4uII9RKwclTZWUyl1A0tSh9+lEhdz9F/EkskH3A6w==}
+    dev: false
 
   /object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}

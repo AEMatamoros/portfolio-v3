@@ -180,7 +180,7 @@ const PortfolioCard = ({ ImageHref, title, techs, url }: any) => {
     return (
         <>
             <div className={`proyects__card w-4/12 px-4`}>
-                <div className="relative mb-12">
+                <div className="relative z-0 mb-12">
                     <div className="overflow-hidden rounded-[10px]">
                         <img
                             src={ImageHref}
@@ -188,11 +188,11 @@ const PortfolioCard = ({ ImageHref, title, techs, url }: any) => {
                             className="w-full"
                         />
                     </div>
-                    <div className="shadow-portfolio dark:shadow-box-dark relative z-10 mx-7 -mt-10 rounded-lg bg-darkprimary p-4 text-center dark:bg-detail">
+                    <div className="shadow-portfolio dark:shadow-box-dark relative z-10 mx-7 -mt-10 rounded-lg bg-primary p-4 text-center dark:bg-darkprimary">
                         <h3 className="mb-5 text-xl font-bold text-dark dark:text-white">
                             {title}
                         </h3>
-                        <ul className="mb-2 flex  justify-center gap-2 text-sm font-semibold text-detail">
+                        <ul className="dark:text-dark-primary mb-2  flex justify-center gap-2 text-sm font-semibold text-primary">
                             {techs.map((tec: string, index: string) => (
                                 <li
                                     key={index}

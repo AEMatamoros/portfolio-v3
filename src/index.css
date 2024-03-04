@@ -188,7 +188,8 @@ img {
 
 .proyects__card {
     width: 350px;
-    img {
-        min-height: 160px;
-    }
+}
+
+.proyects__card img {
+    min-height: 160px;
 }

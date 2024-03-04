@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import Swal from 'sweetalert2';
+import { Notify } from 'notiflix';
+import useStore from '@/store/store';
+import { selectCloseContactForm } from '../store/selectors';
 
-export default function useSubmit({
-    handleContactformClose,
-}: {
-    handleContactformClose: () => void;
-}) {
+export default function useContactForm() {
+    //Handle Close Form
+    const closeForm = useStore(selectCloseContactForm);
+    //handle Send
     const {
         register,
         handleSubmit,
@@ -33,30 +34,18 @@ export default function useSubmit({
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .then(function (response: any) {
                 if (response.status == 200) {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: undefined,
-                        title: 'Thanks i will get in contact with you!',
-                        showConfirmButton: false,
-                        timer: 1500,
-                        timerProgressBar: true,
-                    });
+                    Notify.success(
+                        'Gracias, por escribirme me pondre en contacto contigo.',
+                    );
                     reset({ name: '', email: '', subject: '' });
-                    handleContactformClose();
+                    closeForm();
                     return;
                 }
                 throw new Error('Error');
             })
             .catch(function () {
                 // handle error
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: 'An Error ocurred',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    timerProgressBar: true,
-                });
+                Notify.failure('Lastimosamente ocurrio un error :c');
             })
             .finally(() => {
                 setDisable(false);

@@ -1,36 +1,36 @@
-import { useSubmit } from '@Hooks/index';
-export default function Contact({
-    handleContactformClose,
-    showEmailForm,
-    texts,
-}: {
-    handleContactformClose: () => void;
-    showEmailForm: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    texts: any;
-}) {
-    const { register, handleSubmit, errors, onSubmit, disable } = useSubmit({
-        handleContactformClose,
-    });
+import useStore from '@/store/store';
+import useContactForm from '@Hooks/useContactForm';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    selectCloseContactForm,
+    selectContactFormState,
+} from '@/store/selectors';
+export default function Contact() {
+    const { register, handleSubmit, errors, onSubmit, disable } =
+        useContactForm();
+
+    const show = useStore(selectContactFormState);
+    const handleContactFormClose = useStore(selectCloseContactForm);
+
     return (
         <section
-            className={`main__contact ${
-                showEmailForm && 'show'
-            } flex w-full flex-col items-center justify-center bg-blue-500 p-4 sm:p-4 md:p-4 lg:p-16 xl:p-16`}
+            className={`fixed top-0 z-40 min-h-[100vh] w-full ${
+                !show ? 'right-[100vw]' : 'right-0'
+            } flex w-full flex-col items-center justify-center bg-light p-4 transition-all duration-300 dark:bg-dark sm:p-4 md:p-4 lg:p-16 xl:p-16`}
         >
-            <div className="container">
-                <i
-                    className="fa-solid fa-circle-xmark fa-2xl close cursor-pointer text-white hover:text-red-600"
-                    onClick={() => {
-                        handleContactformClose();
-                    }}
-                ></i>
+            <div className="container flex flex-col">
+                <FontAwesomeIcon
+                    className="fa-solid fa-circle-xmark fa-2xl close dark:text-dark-detail absolute right-4 top-4 cursor-pointer text-detail hover:text-red-600"
+                    onClick={handleContactFormClose}
+                    icon={faClose}
+                />
                 <h2 className="my-4 text-5xl font-semibold text-secondary dark:text-secondary">
                     Contacto
                 </h2>
 
                 <form
-                    className="mx-auto max-w-sm"
+                    className="m-auto w-full md:w-6/12"
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <div className="mb-5">
@@ -38,7 +38,8 @@ export default function Contact({
                             htmlFor="name"
                             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            {texts.labels.contactFullName}
+                            {/* {texts.labels.contactFullName} */}
+                            Nombre Completo
                         </label>
                         <input
                             type="text"
@@ -49,14 +50,15 @@ export default function Contact({
                         />
                         {errors.name && (
                             <span className="text-red-600">
-                                <strong>This field is required</strong>
+                                <strong>Campo Requerido</strong>
                             </span>
                         )}
                         <label
                             htmlFor="email"
                             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            {texts.labels.contactEmail}
+                            {/* {texts.labels.contactEmail} */}
+                            Correo
                         </label>
                         <input
                             type="email"
@@ -67,7 +69,7 @@ export default function Contact({
                         />
                         {errors.email && (
                             <span className="text-red-600">
-                                <strong>This field is required</strong>
+                                <strong>Campo Requerido</strong>
                             </span>
                         )}
                     </div>
@@ -76,7 +78,7 @@ export default function Contact({
                             htmlFor="text"
                             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            {texts.labels.contactSubject}
+                            Mensaje
                         </label>
                         <textarea
                             id="text "
@@ -85,16 +87,16 @@ export default function Contact({
                         ></textarea>
                         {errors.subject && (
                             <span className="text-red-600">
-                                <strong>This field is required</strong>
+                                <strong>Campo Requerido</strong>
                             </span>
                         )}
                     </div>
                     <button
                         type="submit"
-                        className={`w-full rounded-lg bg-green-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-blue-300  dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto ${disable ? 'bg-gray-500 dark:bg-gray-500' : 'dark:bg-blue-600'}`}
+                        className={`dark:hover:bg-secondary-detail w-full rounded-lg bg-detail px-5 py-2.5 text-center text-sm font-medium text-light hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-darkdetail dark:text-dark  dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto ${disable ? 'bg-gray-500 dark:bg-gray-500' : 'dark:bg-blue-600'}`}
                         disabled={disable}
                     >
-                        Submit
+                        Enviar
                     </button>
                 </form>
             </div>

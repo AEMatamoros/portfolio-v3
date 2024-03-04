@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { NotFound, AppContainer } from '@Views/index';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import useStore from '@/store/store';
+import { Contact } from '@Components/index';
 
 export default function AppRouter() {
     const router = createBrowserRouter([
@@ -64,6 +65,7 @@ export default function AppRouter() {
                     <Suspense fallback={<h1>Loading...</h1>}>
                         <RouterProvider router={router} />
                     </Suspense>
+                    <Contact />
                 </main>
             </div>
         </>

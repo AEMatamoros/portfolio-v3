@@ -17,7 +17,7 @@ export function Hero() {
                     Alexis Matamoros.
                 </h1>
                 <span className="hero__description text-center text-3xl  text-detail dark:text-darkdetail">
-                    Bienvenido a mi portolio...
+                    Bienvenido a mi portfolio...
                 </span>
                 <SquaresEffect currentTheme={currentTheme}></SquaresEffect>
             </section>

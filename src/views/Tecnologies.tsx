@@ -486,10 +486,14 @@ export const TECHS = [
 
 export function Tecnologies() {
     return (
-        <section className="flex min-h-[100vh] flex-col items-center justify-center">
+        <section className="items-left m-auto flex min-h-[100vh] w-10/12 flex-col justify-center py-4 md:w-8/12">
             <h2 className="my-8 text-5xl font-semibold text-secondary dark:text-secondary md:my-4">
                 Tecnologias
             </h2>
+            <span className="text-primary dark:text-darkprimary">
+                Estas son algunas de las tecnologias con las que trabaje
+                anteriormente.{' '}
+            </span>
             <ul className="tech-container  main__about__icons flex w-6/12 flex-wrap items-center justify-center gap-12 p-4">
                 {TECHS.map(tec => (
                     <li

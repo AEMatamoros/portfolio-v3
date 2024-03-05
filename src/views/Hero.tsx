@@ -9,14 +9,14 @@ export function Hero() {
 
     return (
         <>
-            <section className="flex min-h-[100vh] flex-col items-center justify-center font-bold text-detail dark:text-darkdetail">
-                <span className="text-center text-6xl text-secondary dark:text-darksecondary">
+            <section className="items-left r m-auto flex min-h-[100vh] w-10/12 flex-col justify-center py-4 md:w-8/12">
+                <span className="hero__subtitle text-center text-6xl font-semibold text-secondary dark:text-darksecondary">
                     Desarrollador Web
                 </span>
-                <h1 className="hero__title text-center text-primary dark:text-darkprimary">
+                <h1 className="hero__title text-center font-bold text-primary dark:text-darkprimary">
                     Alexis Matamoros.
                 </h1>
-                <span className=" text-center text-3xl text-detail dark:text-darkdetail">
+                <span className="hero__description text-center text-3xl  text-detail dark:text-darkdetail">
                     Bienvenido a mi portolio...
                 </span>
                 <SquaresEffect currentTheme={currentTheme}></SquaresEffect>

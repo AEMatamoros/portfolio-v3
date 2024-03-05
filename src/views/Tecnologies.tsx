@@ -486,7 +486,7 @@ export const TECHS = [
 
 export function Tecnologies() {
     return (
-        <section className="items-left m-auto flex min-h-[100vh] w-10/12 flex-col justify-center py-4 md:w-8/12">
+        <section className="m-auto flex min-h-[100vh] w-10/12 flex-col items-center justify-center py-4 md:w-8/12">
             <h2 className="my-8 text-5xl font-semibold text-secondary dark:text-secondary md:my-4">
                 Tecnologias
             </h2>

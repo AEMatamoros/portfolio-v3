@@ -29,7 +29,7 @@ export default function Navbar() {
         <header
             className={`fixed top-0 z-10 w-full max-w-full   ${scroll ? 'bg-lighttransparency dark:bg-darktransparency' : 'bg-light dark:bg-dark'}`}
         >
-            <nav className="border-gray-200 bg-light p-2 dark:bg-dark">
+            <nav className="border-gray-200  p-2 ">
                 <div className="mx-auto flex w-11/12 flex-wrap items-center justify-between">
                     <span
                         onClick={handleTheme}
@@ -40,7 +40,7 @@ export default function Navbar() {
                     <button
                         data-collapse-toggle="navbar-default"
                         type="button"
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+                        className="dark:hover:dark-detail inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-detail focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-darkdetail dark:focus:ring-gray-600 md:hidden"
                         aria-controls="navbar-default"
                         aria-expanded="false"
                     >
@@ -67,7 +67,7 @@ export default function Navbar() {
                         className="hidden w-full md:block md:w-auto"
                         id="navbar-default"
                     >
-                        <ul className="mt-4 flex flex-col items-center rounded-lg border border-gray-100 bg-light p-4 font-medium text-detail dark:border-gray-700 dark:bg-dark  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
+                        <ul className="mt-4 flex flex-col items-center rounded-lg border border-gray-100  p-4 font-medium text-detail dark:border-gray-700  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
                             <li>
                                 <NavLink
                                     to={'/'}
@@ -140,7 +140,7 @@ export default function Navbar() {
                     </div>
                     {showMobileMenu && (
                         <div className=" block min-h-[100vh] w-full bg-transparent md:hidden">
-                            <ul className="mt-4 flex flex-col items-center gap-4 rounded-lg bg-light p-4 font-medium text-detail dark:border-gray-700 dark:bg-dark  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
+                            <ul className="mt-4 flex flex-col items-center gap-4 rounded-lg  p-4 font-medium text-detail dark:border-gray-700  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
                                 <li>
                                     <NavLink
                                         to={'/'}

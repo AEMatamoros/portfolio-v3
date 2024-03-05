@@ -27,7 +27,7 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 z-10  max-h-[20vh] w-full max-w-full overflow-hidden ${scroll ? 'bg-lighttransparency dark:bg-darktransparency' : 'bg-light dark:bg-dark'}`}
+            className={`fixed top-0 z-10 ${showMobileMenu ? 'max-h-[100vh]' : 'max-h-[20vh]'}  w-full max-w-full overflow-hidden ${scroll ? 'bg-lighttransparency dark:bg-darktransparency' : 'bg-light dark:bg-dark'}`}
         >
             <nav className="relative z-30 border-gray-200 p-2 ">
                 <div className="mx-auto flex w-11/12 flex-wrap items-center justify-between">
@@ -217,7 +217,9 @@ export default function Navbar() {
                     )}
                 </div>
             </nav>
-            <div className="absolute top-0 z-20 min-h-[200px] w-full blur"></div>
+            <div
+                className={`absolute top-0 z-20  w-full blur ${showMobileMenu ? 'min-h-[100vh]' : 'min-h-[200px]'}`}
+            ></div>
         </header>
     );
 }

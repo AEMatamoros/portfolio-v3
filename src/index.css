@@ -202,3 +202,7 @@ img {
 .proyects__card img {
     min-height: 160px;
 }
+
+.blur {
+    backdrop-filter: blur(3px);
+}

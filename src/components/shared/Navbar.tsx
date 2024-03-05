@@ -27,9 +27,9 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 z-10 w-full max-w-full   ${scroll ? 'bg-lighttransparency dark:bg-darktransparency' : 'bg-light dark:bg-dark'}`}
+            className={`fixed top-0 z-10  max-h-[20vh] w-full max-w-full overflow-hidden ${scroll ? 'bg-lighttransparency dark:bg-darktransparency' : 'bg-light dark:bg-dark'}`}
         >
-            <nav className="border-gray-200  p-2 ">
+            <nav className="relative z-30 border-gray-200 p-2 ">
                 <div className="mx-auto flex w-11/12 flex-wrap items-center justify-between">
                     <span
                         onClick={handleTheme}
@@ -140,7 +140,7 @@ export default function Navbar() {
                     </div>
                     {showMobileMenu && (
                         <div className=" block min-h-[100vh] w-full bg-transparent md:hidden">
-                            <ul className="mt-4 flex flex-col items-center gap-4 rounded-lg  p-4 font-medium text-detail dark:border-gray-700  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
+                            <ul className="mt-4 flex flex-col items-center justify-center gap-4 rounded-lg  p-4 font-medium text-detail dark:border-gray-700  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
                                 <li>
                                     <NavLink
                                         to={'/'}
@@ -217,6 +217,7 @@ export default function Navbar() {
                     )}
                 </div>
             </nav>
+            <div className="absolute top-0 z-20 min-h-[200px] w-full blur"></div>
         </header>
     );
 }

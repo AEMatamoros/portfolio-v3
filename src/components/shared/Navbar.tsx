@@ -195,14 +195,15 @@ export default function Navbar() {
                                         to={'/'}
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                         onClick={() => {
-                                            setShowMobileMenu(!showMobileMenu);
                                             scrollToTop();
                                         }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
                                             01.
                                         </span>
-                                        Inicio
+                                        {languaje === 'ES'
+                                            ? ES.homeTitle
+                                            : EN.homeTitle}
                                     </NavLink>
                                 </li>
                                 <li>
@@ -210,14 +211,15 @@ export default function Navbar() {
                                         to={'/tecs'}
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                         onClick={() => {
-                                            setShowMobileMenu(!showMobileMenu);
                                             scrollToTop();
                                         }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
                                             02.
                                         </span>
-                                        Tecnologias
+                                        {languaje === 'ES'
+                                            ? ES.tecnologiesTitle
+                                            : EN.tecnologiesTitle}
                                     </NavLink>
                                 </li>
                                 <li>
@@ -225,14 +227,15 @@ export default function Navbar() {
                                         to={'/proyects'}
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                         onClick={() => {
-                                            setShowMobileMenu(!showMobileMenu);
                                             scrollToTop();
                                         }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
                                             03.
                                         </span>
-                                        Proyectos
+                                        {languaje === 'ES'
+                                            ? ES.proyectsTitle
+                                            : EN.proyectsTitle}
                                     </NavLink>
                                 </li>
                                 <li>
@@ -243,7 +246,9 @@ export default function Navbar() {
                                         <span className="p-1 text-detail dark:text-darkdetail">
                                             04.
                                         </span>
-                                        Contacto
+                                        {languaje === 'ES'
+                                            ? ES.contactTitle
+                                            : EN.contactTitle}
                                     </button>
                                 </li>
                                 <li>

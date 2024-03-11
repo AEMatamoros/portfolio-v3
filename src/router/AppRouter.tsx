@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
 import { NotFound, AppContainer } from '@Views/index';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import useStore from '@/store/store';
 import { Contact } from '@Components/index';
+
+import useStore from '@/store/store';
 
 export default function AppRouter() {
     const router = createBrowserRouter([
@@ -25,15 +26,6 @@ export default function AppRouter() {
                             '../components/shared/About'
                         );
                         return { Component: About };
-                    },
-                },
-                {
-                    path: '/experience',
-                    lazy: async () => {
-                        const { Experience } = await import(
-                            '../views/Experience'
-                        );
-                        return { Component: Experience };
                     },
                 },
                 {

@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     selectCloseContactForm,
     selectContactFormState,
+    selectEsLabels,
+    selectEnLabels,
+    selectCurrentLanguaje,
 } from '@/store/selectors';
 export default function Contact() {
     const { register, handleSubmit, errors, onSubmit, disable } =
@@ -12,6 +15,10 @@ export default function Contact() {
 
     const show = useStore(selectContactFormState);
     const handleContactFormClose = useStore(selectCloseContactForm);
+
+    const languaje = useStore(selectCurrentLanguaje);
+    const ES = useStore(selectEsLabels);
+    const EN = useStore(selectEnLabels);
 
     return (
         <section
@@ -26,7 +33,7 @@ export default function Contact() {
                     icon={faClose}
                 />
                 <h2 className="my-4 text-5xl font-semibold text-secondary dark:text-secondary">
-                    Contacto
+                    {languaje === 'ES' ? ES.contactTitle : EN.contactTitle}
                 </h2>
 
                 <form
@@ -38,8 +45,9 @@ export default function Contact() {
                             htmlFor="name"
                             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            {/* {texts.labels.contactFullName} */}
-                            Nombre Completo
+                            {languaje === 'ES'
+                                ? ES.contactFullName
+                                : EN.contactFullName}
                         </label>
                         <input
                             type="text"
@@ -50,15 +58,20 @@ export default function Contact() {
                         />
                         {errors.name && (
                             <span className="text-red-600">
-                                <strong>Campo Requerido</strong>
+                                <strong>
+                                    {languaje === 'ES'
+                                        ? ES.requiredField
+                                        : EN.requiredField}
+                                </strong>
                             </span>
                         )}
                         <label
                             htmlFor="email"
                             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            {/* {texts.labels.contactEmail} */}
-                            Correo
+                            {languaje === 'ES'
+                                ? ES.contactEmail
+                                : EN.contactEmail}
                         </label>
                         <input
                             type="email"
@@ -69,7 +82,11 @@ export default function Contact() {
                         />
                         {errors.email && (
                             <span className="text-red-600">
-                                <strong>Campo Requerido</strong>
+                                <strong>
+                                    {languaje === 'ES'
+                                        ? ES.requiredField
+                                        : EN.requiredField}
+                                </strong>
                             </span>
                         )}
                     </div>
@@ -78,7 +95,9 @@ export default function Contact() {
                             htmlFor="text"
                             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            Mensaje
+                            {languaje === 'ES'
+                                ? ES.contactSubject
+                                : EN.contactSubject}
                         </label>
                         <textarea
                             id="text "
@@ -87,7 +106,11 @@ export default function Contact() {
                         ></textarea>
                         {errors.subject && (
                             <span className="text-red-600">
-                                <strong>Campo Requerido</strong>
+                                <strong>
+                                    {languaje === 'ES'
+                                        ? ES.requiredField
+                                        : EN.requiredField}
+                                </strong>
                             </span>
                         )}
                     </div>
@@ -96,7 +119,7 @@ export default function Contact() {
                         className={`dark:hover:bg-secondary-detail w-full rounded-lg bg-detail px-5 py-2.5 text-center text-sm font-medium text-light hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-darkdetail dark:text-dark  dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto ${disable ? 'bg-gray-500 dark:bg-gray-500' : 'dark:bg-blue-600'}`}
                         disabled={disable}
                     >
-                        Enviar
+                        {languaje === 'ES' ? 'Enviar' : 'Send'}
                     </button>
                 </form>
             </div>

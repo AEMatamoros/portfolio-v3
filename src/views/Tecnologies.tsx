@@ -1,3 +1,9 @@
+import useStore from '@/store/store';
+import {
+    selectEsLabels,
+    selectEnLabels,
+    selectCurrentLanguaje,
+} from '@/store/selectors';
 export const TECHS = [
     {
         hoverColor: 'text-yellow-500',
@@ -485,16 +491,18 @@ export const TECHS = [
 ];
 
 export function Tecnologies() {
+    const languaje = useStore(selectCurrentLanguaje);
+    const ES = useStore(selectEsLabels);
+    const EN = useStore(selectEnLabels);
     return (
         <section className="m-auto flex min-h-[100vh] w-10/12 flex-col items-center justify-center py-4 md:w-8/12">
             <h2 className="my-8 text-5xl font-semibold text-secondary dark:text-secondary md:my-4">
-                Tecnologias
+                {languaje === 'ES' ? ES.tecnologiesTitle : EN.tecnologiesTitle}
             </h2>
             <span className="text-primary dark:text-darkprimary">
-                Estas son algunas de las tecnologias con las que trabaje
-                anteriormente.{' '}
+                {languaje === 'ES' ? ES.tecsPrevius : EN.tecsPrevius}
             </span>
-            <ul className="tech-container  main__about__icons flex w-6/12 flex-wrap items-center justify-center gap-12 p-4">
+            <ul className="tech-container  main__about__icons flex w-full flex-wrap items-center justify-center gap-12 p-4 md:w-8/12">
                 {TECHS.map(tec => (
                     <li
                         key={tec.name}

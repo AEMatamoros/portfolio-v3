@@ -1,24 +1,26 @@
 import profile from '@Assets/img/profile.jpg';
+import useStore from '@/store/store';
+import {
+    selectEsLabels,
+    selectEnLabels,
+    selectCurrentLanguaje,
+} from '@/store/selectors';
 export function About() {
+    const languaje = useStore(selectCurrentLanguaje);
+    const ES = useStore(selectEsLabels);
+    const EN = useStore(selectEnLabels);
     return (
         <section className="items-left m-auto flex min-h-[100vh] w-10/12 flex-col justify-center py-4 md:w-8/12">
             <h2 className="my-4 text-5xl font-semibold text-secondary dark:text-secondary">
-                Sobre mi
+                {languaje === 'ES' ? ES.mainTitle : EN.mainTitle}
             </h2>
             <div className="about___body flex flex-wrap">
                 <div className="about__description w-full lg:w-6/12">
-                    <p className="my-4 text-justify text-base font-normal text-gray-500 dark:text-gray-400">
-                        Soy Ingeniero en Sistemas, mis habilidades están
-                        enfocadas en el desarrollo de aplicaciones web con
-                        conocimientos sobre tecnologías de Backend, Frontend y
-                        sistemas de bases de datos SQL/NOSQL, además poseo muy
-                        buenas habilidades blandas , como buena capacidad de
-                        intercomunicación, trabajo en equipo, organización,
-                        creatividad y además me adapto fácilmente a cualquier
-                        situación o trabajo.
+                    <p className="my-4 text-center text-base font-normal text-gray-500 dark:text-gray-400 md:text-left">
+                        {languaje === 'ES' ? ES.mainMsg : EN.mainMsg}
                     </p>
                     <article className="text-primary dark:text-darkprimary">
-                        Listado de tecnologias utilizadas recientemente:
+                        {languaje === 'ES' ? ES.tecsResume : EN.tecsResume}
                         <ul>
                             <li className="tecs__resume dark:text-darksdetail p-2 text-secondary">
                                 Javascript

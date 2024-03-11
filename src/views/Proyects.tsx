@@ -12,6 +12,7 @@ import PortalImg from '@Assets/img/portfolio/portal.jpg';
 import FUTVIMG from '@Assets/img/portfolio/futv.jpg';
 import Barber from '@Assets/img/portfolio/barber.jpg';
 import NoImg from '@Assets/img/portfolio/noimg.jpg';
+import { useState } from 'react';
 export const PROYECTS = [
     {
         hoverColor: 'text-gray-500',
@@ -158,10 +159,23 @@ export const PROYECTS = [
     },
 ];
 export function Proyects() {
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 4;
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = PROYECTS.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(PROYECTS.length / itemsPerPage);
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
     return (
-        <section className="flex min-h-[100vh] flex-col items-center justify-center">
-            <div className="proyects__grid -mx-4 mt-24  w-8/12">
-                {PROYECTS.map((proyect: any) => (
+        <section className="m-auto flex min-h-[100vh] w-10/12 flex-col items-center justify-center py-4 md:w-8/12">
+            <h2 className="xs:my-4 my-20 text-5xl font-semibold text-secondary dark:text-secondary">
+                Proyectos
+            </h2>
+            <div className="proyects__grid -mx-4  w-full md:w-8/12">
+                {currentItems.map((proyect: any) => (
                     <PortfolioCard
                         ImageHref={proyect.img}
                         title={proyect.name}
@@ -169,6 +183,25 @@ export function Proyects() {
                         key={proyect.name}
                         url={proyect.url}
                     ></PortfolioCard>
+                ))}
+            </div>
+            <div className="flex items-center justify-center gap-4">
+                {Array.from(
+                    { length: totalPages },
+                    (_, index) => index + 1,
+                ).map(page => (
+                    <button
+                        className={` ${
+                            currentPage == page
+                                ? 'bg-detail dark:bg-darkdetail'
+                                : 'dark:bg-dark-primary bg-primary'
+                        } h-10  w-10 p-2 text-white hover:bg-green-500`}
+                        key={page}
+                        onClick={() => handlePageChange(page)}
+                        title={`${page}`}
+                    >
+                        {page}
+                    </button>
                 ))}
             </div>
         </section>

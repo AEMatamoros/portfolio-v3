@@ -1,12 +1,21 @@
-import useThemeHook from '@Hooks/useThemeHook';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '@Components/index';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import {
+    selecShowContactForm,
+    selectCurrentLanguaje,
+    selectSetCurrentLanguaje,
+    selectEnLabels,
+    selectEsLabels,
+} from '@/store/selectors';
+import { scrollToTop } from '@Utils/scrollTop';
+import useThemeHook from '@Hooks/useThemeHook';
 import useStore from '@/store/store';
-import { selecShowContactForm } from '@/store/selectors';
+
+import EnCv from '@Assets/files/Alexis_Matamoros_CV_English.pdf';
+import EsCv from '@Assets/files/Alexis_Matamoros_CV_Español.pdf';
 
 export default function Navbar() {
     //Theme
@@ -24,6 +33,10 @@ export default function Navbar() {
     const handleContactformShow = useStore(selecShowContactForm);
 
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const languaje = useStore(selectCurrentLanguaje);
+    const setCurrenLanguaje = useStore(selectSetCurrentLanguaje);
+    const ES = useStore(selectEsLabels);
+    const EN = useStore(selectEnLabels);
 
     return (
         <header
@@ -31,12 +44,15 @@ export default function Navbar() {
         >
             <nav className="relative z-30 border-gray-200 p-2 ">
                 <div className="mx-auto flex w-11/12 flex-wrap items-center justify-between">
-                    <span
-                        onClick={handleTheme}
-                        className="text-lightprimary dark:text-dark-primary cursor-pointer text-2xl font-bold text-primary"
+                    <NavLink
+                        to={'/'}
+                        className="text-lightprimary dark:text-dark-primary brand__logo cursor-pointer text-2xl font-bold text-primary hover:text-detail dark:text-primary dark:hover:text-darkdetail"
+                        onClick={() => {
+                            scrollToTop();
+                        }}
                     >
-                        <span>AM</span>
-                    </span>
+                        AM
+                    </NavLink>
                     <button
                         data-collapse-toggle="navbar-default"
                         type="button"
@@ -72,33 +88,48 @@ export default function Navbar() {
                                 <NavLink
                                     to={'/'}
                                     className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
+                                    onClick={() => {
+                                        scrollToTop();
+                                    }}
                                 >
                                     <span className="p-1 text-detail dark:text-darkdetail">
                                         01.
                                     </span>
-                                    Inicio
+                                    {languaje === 'ES'
+                                        ? ES.homeTitle
+                                        : EN.homeTitle}
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
                                     to={'/tecs'}
                                     className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
+                                    onClick={() => {
+                                        scrollToTop();
+                                    }}
                                 >
                                     <span className="p-1 text-detail dark:text-darkdetail">
                                         02.
                                     </span>
-                                    Tecnologias
+                                    {languaje === 'ES'
+                                        ? ES.tecnologiesTitle
+                                        : EN.tecnologiesTitle}
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
                                     to={'/proyects'}
                                     className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
+                                    onClick={() => {
+                                        scrollToTop();
+                                    }}
                                 >
                                     <span className="p-1 text-detail dark:text-darkdetail">
                                         03.
                                     </span>
-                                    Proyectos
+                                    {languaje === 'ES'
+                                        ? ES.proyectsTitle
+                                        : EN.proyectsTitle}
                                 </NavLink>
                             </li>
                             <li>
@@ -109,8 +140,21 @@ export default function Navbar() {
                                     <span className="p-1 text-detail dark:text-darkdetail">
                                         04.
                                     </span>
-                                    Contacto
+                                    {languaje === 'ES'
+                                        ? ES.contactTitle
+                                        : EN.contactTitle}
                                 </button>
+                            </li>
+                            <li>
+                                <span className="p-1 text-detail dark:text-darkdetail">
+                                    05.
+                                </span>
+                                <a
+                                    href={languaje == 'ES' ? EsCv : EnCv}
+                                    download
+                                >
+                                    CV
+                                </a>
                             </li>
                             <li>
                                 {currentTheme === 'light' ? (
@@ -129,12 +173,17 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <Button
-                                    text="Idioma"
-                                    onClick={() => {}}
+                                    text={
+                                        languaje == 'ES'
+                                            ? ES.languaje
+                                            : EN.languaje
+                                    }
+                                    onClick={() => {
+                                        setCurrenLanguaje(
+                                            languaje == 'ES' ? 'EN' : 'ES',
+                                        );
+                                    }}
                                 ></Button>
-                            </li>
-                            <li>
-                                <Button text="CV" onClick={() => {}}></Button>
                             </li>
                         </ul>
                     </div>
@@ -145,6 +194,10 @@ export default function Navbar() {
                                     <NavLink
                                         to={'/'}
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
+                                        onClick={() => {
+                                            setShowMobileMenu(!showMobileMenu);
+                                            scrollToTop();
+                                        }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
                                             01.
@@ -156,6 +209,10 @@ export default function Navbar() {
                                     <NavLink
                                         to={'/tecs'}
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
+                                        onClick={() => {
+                                            setShowMobileMenu(!showMobileMenu);
+                                            scrollToTop();
+                                        }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
                                             02.
@@ -167,6 +224,10 @@ export default function Navbar() {
                                     <NavLink
                                         to={'/proyects'}
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
+                                        onClick={() => {
+                                            setShowMobileMenu(!showMobileMenu);
+                                            scrollToTop();
+                                        }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
                                             03.
@@ -186,6 +247,17 @@ export default function Navbar() {
                                     </button>
                                 </li>
                                 <li>
+                                    <span className="p-1 text-detail dark:text-darkdetail">
+                                        05.
+                                    </span>
+                                    <a
+                                        href={languaje == 'ES' ? EsCv : EnCv}
+                                        download
+                                    >
+                                        CV
+                                    </a>
+                                </li>
+                                <li>
                                     {currentTheme === 'light' ? (
                                         <FontAwesomeIcon
                                             icon={faSun}
@@ -203,12 +275,6 @@ export default function Navbar() {
                                 <li>
                                     <Button
                                         text="Idioma"
-                                        onClick={() => {}}
-                                    ></Button>
-                                </li>
-                                <li>
-                                    <Button
-                                        text="CV"
                                         onClick={() => {}}
                                     ></Button>
                                 </li>

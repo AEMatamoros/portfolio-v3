@@ -274,8 +274,16 @@ export default function Navbar() {
                                 </li>
                                 <li>
                                     <Button
-                                        text="Idioma"
-                                        onClick={() => {}}
+                                        text={
+                                            languaje == 'ES'
+                                                ? ES.languaje
+                                                : EN.languaje
+                                        }
+                                        onClick={() => {
+                                            setCurrenLanguaje(
+                                                languaje == 'ES' ? 'EN' : 'ES',
+                                            );
+                                        }}
                                     ></Button>
                                 </li>
                             </ul>

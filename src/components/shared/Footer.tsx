@@ -1,8 +1,3 @@
-import React from 'react';
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
-
 export default function Footer() {
     return (
         <footer className="mt-4 flex flex-col items-center justify-center bg-secondary p-16 text-light dark:bg-darksecondary">

@@ -4,6 +4,8 @@ import SquaresEffect from './shared/SquareEffect';
 import Timeline from './shared/Timeline';
 import Contact from './shared/Contact';
 import GoTop from './shared/GoTop';
+import Lamp from './shared/Lamp';
 
 import { About } from './shared/About';
-export { Navbar, Button, SquaresEffect, Timeline, About, Contact, GoTop };
+
+export { Navbar, Button, SquaresEffect, Timeline, About, Contact, GoTop, Lamp };

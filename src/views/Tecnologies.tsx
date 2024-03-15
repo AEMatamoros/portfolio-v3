@@ -12,7 +12,7 @@ export function Tecnologies() {
     const languaje = useStore(selectCurrentLanguaje);
     const ES = useStore(selectEsLabels);
     const EN = useStore(selectEnLabels);
-    const [parent, techsList] = useDragAndDrop(TECHS);
+    const [parent, techsList] = useDragAndDrop<HTMLUListElement, any>(TECHS);
 
     return (
         <section className="m-auto flex min-h-[100vh] w-10/12 flex-col items-center justify-center py-4 md:w-8/12">

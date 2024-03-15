@@ -196,6 +196,7 @@ export default function Navbar() {
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                         onClick={() => {
                                             scrollToTop();
+                                            setShowMobileMenu(false);
                                         }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
@@ -212,6 +213,7 @@ export default function Navbar() {
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                         onClick={() => {
                                             scrollToTop();
+                                            setShowMobileMenu(false);
                                         }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
@@ -228,6 +230,7 @@ export default function Navbar() {
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                         onClick={() => {
                                             scrollToTop();
+                                            setShowMobileMenu(false);
                                         }}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">

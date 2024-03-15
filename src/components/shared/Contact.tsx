@@ -22,9 +22,8 @@ export default function Contact() {
 
     return (
         <section
-            className={`fixed top-0 z-40 min-h-[100vh] w-full ${
-                !show ? 'right-[100vw]' : 'right-0'
-            } flex w-full flex-col items-center justify-center bg-light p-4 transition-all duration-300 dark:bg-dark sm:p-4 md:p-4 lg:p-16 xl:p-16`}
+            className={`fixed top-0 z-40 flex w-full flex-col items-center justify-center bg-light p-4 transition-all duration-300 dark:bg-dark sm:p-4 md:p-4 lg:p-16 xl:p-16`}
+            style={{transform: `translateX(${show?"0":"100%"})`}}
         >
             <div className="container flex flex-col">
                 <FontAwesomeIcon

@@ -18,11 +18,11 @@ export function Hero() {
     return (
         <>
             <section className="items-left r m-auto flex min-h-[100vh] w-10/12 flex-col justify-center py-4 md:w-8/12">
-                <span className="hero__subtitle third-text-animation text-center text-6xl font-semibold text-secondary dark:text-darksecondary">
+                <span className="hero__subtitle third-text-animation text-center font-semibold text-secondary dark:text-darksecondary">
                     {languaje === 'ES' ? ES.userJob : EN.userJob}
                 </span>
                 <h1 className="hero__title first-text-animation text-center font-bold text-primary dark:text-darkprimary">
-                    Alexis Matamoros.
+                    Alexis Matamoros
                 </h1>
                 <span className="hero__description second-text-animation   text-center text-3xl text-detail dark:text-darkdetail">
                     {languaje === 'ES' ? ES.mainHero : EN.mainHero}

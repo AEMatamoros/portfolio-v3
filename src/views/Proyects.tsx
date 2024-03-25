@@ -7,14 +7,14 @@ import {
     selectEnLabels,
     selectCurrentLanguaje,
 } from '@/store/selectors';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 export function Proyects() {
     const languaje = useStore(selectCurrentLanguaje);
     const ES = useStore(selectEsLabels);
     const EN = useStore(selectEnLabels);
-    
+
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 4;
+    const itemsPerPage = 6;
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = PROYECTS.slice(indexOfFirstItem, indexOfLastItem);
@@ -26,7 +26,7 @@ export function Proyects() {
     return (
         <section className="m-auto flex min-h-[100vh] w-10/12 flex-col items-center justify-center py-4 md:w-8/12">
             <h2 className="xs:my-4 my-20 text-5xl font-semibold text-secondary dark:text-secondary">
-            {languaje === 'ES' ? ES.proyectsTitle : EN.proyectsTitle}
+                {languaje === 'ES' ? ES.proyectsTitle : EN.proyectsTitle}
             </h2>
             <div className="proyects__grid -mx-4  w-full">
                 {currentItems.map((proyect: any) => (
@@ -69,10 +69,12 @@ const PortfolioCard = ({ ImageHref, title, techs, url }: any) => {
             <div className={`proyects__card w-4/12 px-4`}>
                 <div className="relative z-0 mb-12">
                     <div className="overflow-hidden rounded-[10px]">
-                        <img
+                        <LazyLoadImage
                             src={ImageHref}
                             alt="portfolio"
                             className="w-full"
+                            width="100"
+                            height="100"
                         />
                     </div>
                     <div className="shadow-portfolio dark:shadow-box-dark relative z-10 mx-7 -mt-10 rounded-lg bg-primary p-4 text-center dark:bg-darkprimary">

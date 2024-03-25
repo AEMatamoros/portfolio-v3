@@ -1,10 +1,11 @@
-import profile from '@Assets/img/profile.jpg';
+import profile from '@Assets/img/profile.webp';
 import useStore from '@/store/store';
 import {
     selectEsLabels,
     selectEnLabels,
     selectCurrentLanguaje,
 } from '@/store/selectors';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 export function About() {
     const languaje = useStore(selectCurrentLanguaje);
     const ES = useStore(selectEsLabels);
@@ -38,10 +39,12 @@ export function About() {
                     </article>
                 </div>
                 <div className="about__description flex w-full justify-center px-0 py-2 lg:w-6/12 lg:p-4">
-                    <img
+                    <LazyLoadImage
                         src={profile}
                         alt="Profile Picture"
                         className="about__profile w-10/12"
+                        width="400"
+                        height="400"
                     />
                 </div>
             </div>

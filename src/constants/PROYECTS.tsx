@@ -42,7 +42,7 @@ export const PROYECTS = [
             'It is a free technological platform, created to make it easier for people to exercise the right of access to information.',
         img: PortalImg,
         icon: 'fa-light fa-e',
-        url: 'https://portalunico.iaip.gob.hn/homeLanding',
+        url: 'https://portalunico.iaip.gob.hn/',
         techs: ['React', 'Django', 'ElasticSearch'],
     },
     {

@@ -1,3 +1,5 @@
+import Techs from '@Components/shared/Techs';
+
 import SquaresEffect from '../components/shared/SquareEffect';
 import useStore from '@/store/store';
 import {
@@ -8,6 +10,7 @@ import {
 } from '@/store/selectors';
 import { Timeline } from '@Components/index';
 import { About } from '../components/shared/About';
+import { Proyect } from '../components/shared/Proyects';
 
 export function Hero() {
     const currentTheme = useStore(selectTheme);
@@ -31,6 +34,8 @@ export function Hero() {
             </section>
             <About></About>
             <Timeline></Timeline>
+            <Techs />
+            <Proyect />
         </>
     );
 }

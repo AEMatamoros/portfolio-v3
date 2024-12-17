@@ -28,22 +28,6 @@ export default function AppRouter() {
                         return { Component: About };
                     },
                 },
-                {
-                    path: '/proyects',
-                    lazy: async () => {
-                        const { Proyects } = await import('../views/Proyects');
-                        return { Component: Proyects };
-                    },
-                },
-                {
-                    path: '/tecs',
-                    lazy: async () => {
-                        const { Tecnologies } = await import(
-                            '../views/Tecnologies'
-                        );
-                        return { Component: Tecnologies };
-                    },
-                },
             ],
         },
     ]);

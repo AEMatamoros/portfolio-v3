@@ -101,44 +101,12 @@ export default function Navbar() {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                    to={'/tecs'}
-                                    className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
-                                    onClick={() => {
-                                        scrollToTop();
-                                    }}
-                                >
-                                    <span className="p-1 text-detail dark:text-darkdetail">
-                                        02.
-                                    </span>
-                                    {languaje === 'ES'
-                                        ? ES.tecnologiesTitle
-                                        : EN.tecnologiesTitle}
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to={'/proyects'}
-                                    className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
-                                    onClick={() => {
-                                        scrollToTop();
-                                    }}
-                                >
-                                    <span className="p-1 text-detail dark:text-darkdetail">
-                                        03.
-                                    </span>
-                                    {languaje === 'ES'
-                                        ? ES.proyectsTitle
-                                        : EN.proyectsTitle}
-                                </NavLink>
-                            </li>
-                            <li>
                                 <button
                                     className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                     onClick={handleContactformShow}
                                 >
                                     <span className="p-1 text-detail dark:text-darkdetail">
-                                        04.
+                                        02.
                                     </span>
                                     {languaje === 'ES'
                                         ? ES.contactTitle
@@ -147,7 +115,7 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <span className="p-1 text-detail dark:text-darkdetail">
-                                    05.
+                                    03.
                                 </span>
                                 <a
                                     href={languaje == 'ES' ? EsCv : EnCv}
@@ -189,7 +157,7 @@ export default function Navbar() {
                     </div>
                     {showMobileMenu && (
                         <div className=" block min-h-[100vh] w-full bg-transparent md:hidden">
-                            <ul className="mt-4 flex flex-col items-center justify-center gap-4 rounded-lg  p-4 font-medium text-detail dark:border-gray-700  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
+                            <ul className="mt-4 flex min-h-[70vh] flex-col items-center justify-center gap-4 rounded-lg  p-4 font-medium text-detail dark:border-gray-700  dark:text-darkprimary md:mt-0 md:flex-row md:space-x-8 md:border-0 rtl:space-x-reverse">
                                 <li>
                                     <NavLink
                                         to={'/'}
@@ -208,46 +176,12 @@ export default function Navbar() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to={'/tecs'}
-                                        className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
-                                        onClick={() => {
-                                            scrollToTop();
-                                            setShowMobileMenu(false);
-                                        }}
-                                    >
-                                        <span className="p-1 text-detail dark:text-darkdetail">
-                                            02.
-                                        </span>
-                                        {languaje === 'ES'
-                                            ? ES.tecnologiesTitle
-                                            : EN.tecnologiesTitle}
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        to={'/proyects'}
-                                        className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
-                                        onClick={() => {
-                                            scrollToTop();
-                                            setShowMobileMenu(false);
-                                        }}
-                                    >
-                                        <span className="p-1 text-detail dark:text-darkdetail">
-                                            03.
-                                        </span>
-                                        {languaje === 'ES'
-                                            ? ES.proyectsTitle
-                                            : EN.proyectsTitle}
-                                    </NavLink>
-                                </li>
-                                <li>
                                     <button
                                         className="flex transform cursor-pointer items-center hover:scale-105 hover:text-detail dark:hover:text-darkdetail"
                                         onClick={handleContactformShow}
                                     >
                                         <span className="p-1 text-detail dark:text-darkdetail">
-                                            04.
+                                            02.
                                         </span>
                                         {languaje === 'ES'
                                             ? ES.contactTitle
@@ -256,7 +190,7 @@ export default function Navbar() {
                                 </li>
                                 <li>
                                     <span className="p-1 text-detail dark:text-darkdetail">
-                                        05.
+                                        03.
                                     </span>
                                     <a
                                         href={languaje == 'ES' ? EsCv : EnCv}

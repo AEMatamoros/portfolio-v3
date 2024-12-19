@@ -46,7 +46,7 @@ export default function Navbar() {
                 <div className="mx-auto flex w-11/12 flex-wrap items-center justify-between">
                     <NavLink
                         to={'/'}
-                        className="text-lightprimary dark:text-dark-primary brand__logo cursor-pointer text-2xl font-bold text-primary hover:text-detail dark:text-primary dark:hover:text-darkdetail"
+                        className="brand__logo cursor-pointer text-2xl font-bold text-primary  hover:text-detail  dark:text-darkprimary  dark:hover:text-darkdetail"
                         onClick={() => {
                             scrollToTop();
                         }}

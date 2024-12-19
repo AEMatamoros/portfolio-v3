@@ -85,7 +85,7 @@ export function Proyect() {
                                 className={` ${
                                     currentPage == page
                                         ? 'bg-detail dark:bg-darkdetail'
-                                        : 'dark:bg-dark-primary bg-primary'
+                                        : 'bg-primary dark:bg-darkprimary'
                                 } h-10  w-10 p-2 text-white hover:bg-green-500`}
                                 key={page}
                                 onClick={() => handlePageChange(page)}

@@ -12,7 +12,7 @@ export function About() {
     const EN = useStore(selectEnLabels);
     return (
         <section className="items-left m-auto flex min-h-[100vh] w-10/12 flex-col justify-center py-4 md:w-8/12">
-            <h2 className="my-4 text-5xl font-semibold text-secondary dark:text-secondary">
+            <h2 className="my-4 text-5xl font-semibold text-darksecondary dark:text-secondary">
                 {languaje === 'ES' ? ES.mainTitle : EN.mainTitle}
             </h2>
             <div className="about___body flex flex-wrap">

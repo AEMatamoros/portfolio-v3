@@ -43,7 +43,7 @@ export default function Footer() {
                     </a>
                 </li>
             </ul>
-            <span className="mb-4 text-dark dark:text-white">
+            <span className="mb-4  dark:text-white">
                 &copy; 2023 Alexis Matamoros
             </span>
         </footer>

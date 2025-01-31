@@ -23,7 +23,7 @@ const PortfolioItem = ({
     return (
         <NavLink to={url}>
             <div className="flex grow flex-col justify-center whitespace-nowrap border border-solid border-gray-700 p-4 max-md:max-w-full">
-                <h3 className="relative  text-xl font-extrabold leading-tight text-white">
+                <h3 className="relative  text-xl font-extrabold leading-tight text-secondary dark:text-darksecondary">
                     {name}
                 </h3>
                 <div className="relative flex min-h-[200px] flex-col items-start px-12 pb-12 pt-96 max-md:max-w-full max-md:px-5 max-md:pt-24">

@@ -100,7 +100,7 @@ export default function TImeline() {
     const EN = useStore(selectEnLabels);
     return (
         <section className="items-left m-auto flex min-h-[100vh] w-10/12 flex-col justify-center py-4 md:w-8/12">
-            <h2 className="my-4 text-center text-5xl font-semibold text-secondary dark:text-secondary md:text-left">
+            <h2 className="my-4 text-center text-5xl font-semibold text-darksecondary dark:text-secondary md:text-left">
                 {languaje === 'ES' ? ES.experience : EN.experience}
             </h2>
             <ol className="relative border-s border-gray-200 dark:border-gray-700">

@@ -27,6 +27,7 @@ export default function Navbar() {
         window.addEventListener('scroll', () => {
             setScroll(window.scrollY > 50);
         });
+        handleTheme();
     }, []);
 
     // Open Contact
@@ -40,7 +41,7 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 z-10 ${showMobileMenu ? 'max-h-[100vh]' : 'max-h-[20vh]'}  w-full max-w-full overflow-hidden ${scroll ? 'bg-lighttransparency dark:bg-darktransparency' : 'bg-light dark:bg-dark'}`}
+            className={`fixed top-0 z-10 ${showMobileMenu ? 'max-h-[100vh]' : 'max-h-[20vh]'}  w-full max-w-full overflow-hidden ${scroll ? 'bg-lighttransparency dark:bg-darktransparency' : 'bg-light dark:bg-transparent'}`}
         >
             <nav className="relative z-30 border-gray-200 p-2 ">
                 <div className="mx-auto flex w-11/12 flex-wrap items-center justify-between">
